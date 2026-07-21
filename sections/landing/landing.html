@@ -1,0 +1,103 @@
+<!-- Standalone preview note:
+This file contains only the Landing / Splash section's own markup, styles, and script.
+It is NOT a full page by itself — open the parent /index.html to see the
+complete Zyphora site with nav, fonts, and shared behavior included.
+This file exists so the Landing / Splash section can be edited/reused in isolation. -->
+<link rel="stylesheet" href="landing.css">
+
+<div id="landingPage" class="lp-page">
+
+  <svg class="lp-arc-bg" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M -50 780 C 350 900, 650 300, 1500 60" fill="none" stroke="var(--gold)" stroke-opacity="0.35" stroke-width="1"/>
+    <path d="M 250 900 C 600 950, 900 400, 1500 160" fill="none" stroke="var(--gold)" stroke-opacity="0.18" stroke-width="1"/>
+  </svg>
+
+  <div class="lp-topbar">
+    <div class="lp-topbar__left">
+      <span class="lp-topbar__tag">Elevate. Engage. Empower.</span>
+      <span class="lp-topbar__rule"></span>
+    </div>
+    <span class="lp-topbar__mark" aria-hidden="true"></span>
+  </div>
+
+  <section class="lp-hero">
+    <div class="lp-inner">
+      <div class="lp-content">
+        <div class="lp-eyebrow">Digital Marketing, Strategy &amp; Creative Solutions</div>
+        <h1 class="lp-title">
+          Elevate Your
+          <em>Online Presence</em>
+        </h1>
+        <p class="lp-sub">
+          We help brands grow online with strategy, creativity, and data-driven marketing that delivers real results.
+        </p>
+        <div class="lp-actions">
+          <!-- Dismisses the splash and reveals the main site underneath -->
+          <button type="button" class="lp-btn-explore" id="lpExplore">Explore <span>↗</span></button>
+          <!-- Dismisses the splash and jumps straight to the site's Contact page -->
+          <button type="button" class="lp-btn-secondary" id="lpWork">Work With Us</button>
+        </div>
+      </div>
+
+      <!-- Photo stack: add any number of <img> tags here — the script auto-advances through
+           them every 3 seconds. Replace the src values with your own images;
+           "images/Working-sample.png" is a placeholder. -->
+      <div class="lp-media-wrap">
+        <div class="lp-media" id="lpHeroMedia">
+          <img src="images/Working-sample.png" class="is-active" alt="Zyphora — behind the scenes, shoot 1">
+          <img src="images/cameraman-sample.png" alt="Zyphora — behind the scenes, shoot 2">
+          <img src="images/Clienttalk-sample.png" alt="Zyphora — behind the scenes, shoot 3">
+          <img src="images/Editing-sample.png" alt="Zyphora — behind the scenes, shoot 4">
+        </div>
+        <div class="lp-media-label">
+          <span>Zyphora · In Motion</span>
+          <span class="lp-media-dots" id="lpHeroMediaDots"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lp-stats">
+    <div class="lp-stat">
+      <span class="lp-stat__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 20V11M12 20V4M20 20v-6"/></svg>
+      </span>
+      <div>
+        <div class="lp-stat__title">Strategy First</div>
+        <p class="lp-stat__desc">Data-driven strategies that build strong brands.</p>
+      </div>
+    </div>
+    <div class="lp-stat">
+      <span class="lp-stat__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/></svg>
+      </span>
+      <div>
+        <div class="lp-stat__title">Creative Minds</div>
+        <p class="lp-stat__desc">Ideas that connect, content that converts.</p>
+      </div>
+    </div>
+    <div class="lp-stat">
+      <span class="lp-stat__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="3.4"/><circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none"/></svg>
+      </span>
+      <div>
+        <div class="lp-stat__title">Results That Matter</div>
+        <p class="lp-stat__desc">Focused on growth, engagement &amp; ROI.</p>
+      </div>
+    </div>
+    <div class="lp-quote">
+      <span class="lp-quote__star">✦</span>
+      <p>Students who are driven, creative, ambitious, and far more capable than you think.</p>
+      <span class="lp-quote__by">— Team Zyphora</span>
+    </div>
+  </div>
+
+  <div class="lp-strip">
+    <span>A Student-Run Digital Marketing Agency</span>
+    <span class="dot">✦</span>
+    <span>Built On Passion. Driven By Purpose.</span>
+  </div>
+
+</div>
+
+<script src="landing.js"></script>

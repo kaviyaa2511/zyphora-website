@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zyphora - Elevate Your Online Presence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<!-- Shared styles (root vars, reset, nav, global background, .anim utility, shared design tokens) -->
+<link rel="stylesheet" href="shared/common.css" />
+<!-- Per-section styles — order kept identical to the original single-file build -->
+<link rel="stylesheet" href="sections/about/about.css" />
+<link rel="stylesheet" href="sections/landing/landing.css" />
+<link rel="stylesheet" href="sections/pillars/pillars.css" />
+<link rel="stylesheet" href="sections/contact/contact.css" />
+<link rel="stylesheet" href="sections/services/services.css" />
+<link rel="stylesheet" href="sections/works/works.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     LANDING / SPLASH PAGE
+     ══════════════════════════════════════════════ -->
+<div id="landingPage" class="lp-page">
+
+  <svg class="lp-arc-bg" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M -50 780 C 350 900, 650 300, 1500 60" fill="none" stroke="var(--gold)" stroke-opacity="0.35" stroke-width="1"/>
+    <path d="M 250 900 C 600 950, 900 400, 1500 160" fill="none" stroke="var(--gold)" stroke-opacity="0.18" stroke-width="1"/>
+  </svg>
+
+  <div class="lp-topbar">
+    <div class="lp-topbar__left">
+      <span class="lp-topbar__tag">Elevate. Engage. Empower.</span>
+      <span class="lp-topbar__rule"></span>
+    </div>
+    <span class="lp-topbar__mark" aria-hidden="true"></span>
+  </div>
+
+  <section class="lp-hero">
+    <div class="lp-inner">
+      <div class="lp-content">
+        <br>
+        <div class="lp-eyebrow">Digital Marketing, Strategy &amp; Creative Solutions</div>
+        <h1 class="lp-title">
+          Elevate Your
+          <em>Online Presence</em>
+        </h1>
+        <p class="lp-sub">
+          We help brands grow online with strategy, creativity, and data-driven marketing that delivers real results.
+        </p>
+        <div class="lp-actions">
+          <!-- Dismisses the splash and reveals the main site underneath -->
+          <button type="button" class="lp-btn-explore" id="lpExplore">Explore <span>↗</span></button>
+          <!-- Dismisses the splash and jumps straight to the site's Contact page -->
+          <button type="button" class="lp-btn-secondary" id="lpWork">Work With Us</button>
+        </div>
+      </div>
+
+      <!-- Photo stack: add any number of <img> tags here — the script auto-advances through
+           them every 3 seconds. Replace the src values with your own images;
+           "sections/landing/images/Working-sample.png" is a placeholder. -->
+      <div class="lp-media-wrap">
+        <div class="lp-media" id="lpHeroMedia">
+          <img src="sections/landing/images/Working-sample.png" class="is-active" alt="Zyphora — behind the scenes, shoot 1">
+          <img src="sections/landing/images/cameraman-sample.png" alt="Zyphora — behind the scenes, shoot 2">
+          <img src="sections/landing/images/Clienttalk-sample.png" alt="Zyphora — behind the scenes, shoot 3">
+          <img src="sections/landing/images/Editing-sample.png" alt="Zyphora — behind the scenes, shoot 4">
+        </div>
+        <div class="lp-media-label">
+          <span>Zyphora · In Motion</span>
+          <span class="lp-media-dots" id="lpHeroMediaDots"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lp-stats">
+    <div class="lp-stat">
+      <span class="lp-stat__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 20V11M12 20V4M20 20v-6"/></svg>
+      </span>
+      <div>
+        <div class="lp-stat__title">Strategy First</div>
+        <p class="lp-stat__desc">Data-driven strategies that build strong brands.</p>
+      </div>
+    </div>
+    <div class="lp-stat">
+      <span class="lp-stat__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/></svg>
+      </span>
+      <div>
+        <div class="lp-stat__title">Creative Minds</div>
+        <p class="lp-stat__desc">Ideas that connect, content that converts.</p>
+      </div>
+    </div>
+    <div class="lp-stat">
+      <span class="lp-stat__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="3.4"/><circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none"/></svg>
+      </span>
+      <div>
+        <div class="lp-stat__title">Results That Matter</div>
+        <p class="lp-stat__desc">Focused on growth, engagement &amp; ROI.</p>
+      </div>
+    </div>
+    <div class="lp-quote">
+      <span class="lp-quote__star">✦</span>
+      <p>Students who are driven, creative, ambitious, and far more capable than you think.</p>
+      <span class="lp-quote__by">— Team Zyphora</span>
+    </div>
+  </div>
+
+  <div class="lp-strip">
+    <span>A Student-Run Digital Marketing Agency</span>
+    <span class="dot">✦</span>
+    <span>Built On Passion. Driven By Purpose.</span>
+  </div>
+
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#aboutPage" class="nav-logo" id="navLogo">
+    <img src="shared/images/Zyphora_transparent.png" alt="Zyphora Logo" class="logo-img">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#aboutPage" class="active" id="navAbout">About Us</a></li>
+    <li><a href="#servicesPage" id="navServices">Services</a></li>
+    <li><a href="#worksPage" id="navWorks">Works</a></li>
+    <li><a href="#teamPage" id="navTeam">Pillars</a></li>
+    <li><a href="#contact" id="navContact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-scrim" id="navScrim"></div>
+
+<!-- ══════════════════════════════════════════════
+     ABOUT US PAGE
+     ══════════════════════════════════════════════ -->
+<div id="aboutPage">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="eyebrow anim">Creative Marketing · Real Impact</div>
+      <h1 class="anim d1">
+        We don't just<br>observe the
+        <em>generation —</em>
+        we are it.
+      </h1>
+      <p class="hero-sub anim d2">
+        Zyphora was born from a simple belief: people don't connect with advertisements — they connect with stories, emotions, comfort, and trust.
+      </p>
+    </div>
+    <div class="hero-video-wrap anim d1">
+      <video autoplay muted loop playsinline>
+        <source src="sections/about/images/MiniV.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-label">Zyphora · In Motion</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TAGLINE BAND -->
+<div class="tagline-band">
+  <div class="tagline-main anim">
+    <span>Elevate</span> Your Online Presence.
+  </div>
+  <p class="tagline-sub anim d1">Modern · Strategic · Creative · Impactful</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- STORY SECTION — text left, image right -->
+<div class="sec">
+  <div class="pair">
+    <div>
+      <p class="sec-label anim">Our Story</p>
+      <h2 class="anim d1">Built by creators.<br><em>Driven by truth.</em></h2>
+      <div class="body-text anim d2">
+        <p>As students, creators, and digital marketers, we don't just observe today's generation — we are part of it. We understand what captures attention, what builds trust, and what transforms a casual visitor into a loyal customer.</p>
+        <p>While many agencies study trends, we live them every day. We understand the conversations, behaviors, and experiences that shape modern audiences because we are growing alongside them.</p>
+        <p>That's why we help brands do more than gain visibility. We help them become relevant, relatable, and memorable.</p>
+      </div>
+    </div>
+    <div class="img-frame anim d1">
+        <img src="sections/about/images/Working-sample.png">
+        <div class="img-caption">Crafting · Visual Stories</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- MISSION & VISION — image left, text right -->
+<div class="mv-wrap">
+  <div class="mv-inner">
+    <div class="pair flip" style="margin-bottom: 4rem;">
+      <div>
+        <p class="sec-label anim">Mission &amp; Vision</p>
+        <h2 class="anim d1">Building Brands That<br><em>People Believe In.</em></h2>
+        <div class="body-text anim d2">
+          <p>We don't create content to fill timelines.</p>
+          <p>We create experiences that people remember, conversations that people share, and connections that people trust.</p>
+        </div>
+      </div>
+      <div class="img-frame anim d1">
+        <img src="sections/about/images/Working-sample.png" alt="Mission & Vision">
+        <div class="img-caption">Connecting · Building Trust</div>
+      </div>
+    </div>
+    <div class="mv-pair">
+      <div class="mv-card anim">
+        <div class="mv-tag">Mission</div>
+        <h3>Fill hearts, not screens.</h3>
+        <p class="mv-body">We help brands evolve from products and promotions to stories that inspire trust, create meaning and bring people together.</p>
+      </div>
+      <div class="mv-card anim d1">
+        <div class="mv-tag">Vision</div>
+        <h3>Brands built for generations.</h3>
+        <p class="mv-body">At Zyphora we build companies that create legacies — brands that people don't just recognize, but remember, trust, and pass on for generations.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<br>
+<br>
+
+<!-- WHY ZYPHORA -->
+<div class="sec">
+  <p class="sec-label anim">Why Zyphora</p>
+  <h2 class="anim d1">We are the<br><em>audience.</em></h2>
+  <div class="why-list">
+    <div class="why-item anim">
+      <span class="why-num">01</span>
+      <span class="why-a">When others see data, we see people.</span>
+      <span class="why-b">We understand the language, culture, trends, and emotions that shape today's generation because we live them every day.</span>
+    </div>
+    <div class="why-item anim d1">
+      <span class="why-num">02</span>
+      <span class="why-a">When others create content, we create connection.</span>
+      <span class="why-b">That perspective allows us to create marketing that feels authentic, relatable, and impactful.</span>
+    </div>
+    <div class="why-item anim d2">
+      <span class="why-num">03</span>
+      <span class="why-a">When others chase attention, we build trust.</span>
+      <span class="why-b">Successful marketing isn't about reaching more people. It's about meaning something to them.</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROCESS -->
+<div class="process-wrap">
+  <div class="process-inner">
+    <p class="sec-label anim">Our Process</p>
+    <h2 class="anim d1">How we<br><em>build connection.</em></h2>
+    <div class="process-grid">
+      <div class="p-step anim">
+        <div class="p-num">01</div>
+        <div class="p-name">Understand the Heart</div>
+        <p class="p-desc">Before we create anything, we understand the people behind the brand and the people it hopes to reach.</p>
+      </div>
+      <div class="p-step anim d1">
+        <div class="p-num">02</div>
+        <div class="p-name">Shape the Story</div>
+        <p class="p-desc">Every brand has a story worth telling. We find it, refine it, and turn it into something people connect with.</p>
+      </div>
+      <div class="p-step anim d2">
+        <div class="p-num">03</div>
+        <div class="p-name">Create the Experience</div>
+        <p class="p-desc">Through strategy, design, content, and creativity, we bring that story to life across the digital world.</p>
+      </div>
+      <div class="p-step anim d3">
+        <div class="p-num">04</div>
+        <div class="p-name">Build the Connection</div>
+        <p class="p-desc">We create moments that spark trust, emotion, and engagement between your brand and its audience.</p>
+      </div>
+      <div class="p-step anim d4">
+        <div class="p-num">05</div>
+        <div class="p-name">Leave an Impact</div>
+        <p class="p-desc">Great marketing isn't measured by attention alone — it's measured by the legacy it creates.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-wrap">
+    <img src="sections/about/images/Working-sample.png">
+    <div class="cta-overlay">
+    <p class="cta-label anim">Ready to elevate?</p>
+    <h2 class="cta-title anim d1">Let's build something<br><em>people feel.</em></h2>
+    <a href="#contact" class="cta-btn anim d2" id="ctaContact">Work With Us →</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SERVICES PAGE
+     ══════════════════════════════════════════════ -->
+<div id="servicesPage">
+
+  <!-- SERVICES INTRODUCTION — opening editorial section (STATE A) -->
+  <section class="hero-intro">
+    <div class="hero-intro__texture" aria-hidden="true"></div>
+    <div class="hero-intro__frame">
+      <div class="hero-intro__top anim">
+        <hr class="hairline" style="width:48px; margin:0;">
+        <span class="hero-intro__index">00 / 08</span>
+      </div>
+      <h1 class="hero-intro__heading anim d1">We help brands find direction, build presence, and <em>grow with purpose.</em></h1>
+      <div class="hero-intro__cols anim d2">
+        <div class="hero-intro__body-col">
+          <p>A strong digital presence is not built by doing everything. It is built by doing the right things, in the right way, for the right audience.</p>
+          <p>At Zyphora, we bring strategy, creativity, technology, and communication together to help businesses become more visible, relevant, and memorable. From shaping the first idea to executing campaigns and measuring growth, we work across every important part of a brand's digital journey.</p>
+        </div>
+        <div class="hero-intro__quote">
+          <p class="hero-intro__closing">Because growth should never begin with noise. It should begin with direction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE SERVICES INTRODUCTION -->
+  <section class="core-intro anim">
+    <div class="core-intro__left">
+      <span class="eyebrow">Core Services</span>
+      <p>Eight connected disciplines. One purpose: helping brands move forward with clarity.</p>
+    </div>
+    <span class="core-intro__count">08 DISCIPLINES</span>
+  </section>
+
+  <!-- CORE SERVICE TILE GRID (STATE B) — rendered from the SERVICES data array in the script below -->
+  <section id="tilesGrid" class="tiles-grid" aria-label="Core services"></section>
+
+  <!-- ONGOING GROWTH & SUPPORT -->
+  <section class="support-section">
+    <div class="support-section__head anim">
+      <span class="eyebrow">Ongoing Growth &amp; Support</span>
+      <h2>Growth does not end when something goes live.</h2>
+      <p>Launching a website, campaign, or strategy is only the beginning. As businesses grow, their digital presence needs continued attention, improvement, communication, and care. Our ongoing support services help brands stay connected, informed, and ready for what comes next.</p>
+    </div>
+    <div id="supportRows" class="anim d1"></div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="servicesFinalCta">
+    <div class="final-cta__glow" aria-hidden="true"></div>
+    <div class="final-cta__content anim">
+      <span class="eyebrow">Work With Us</span>
+      <h2>Not sure which service your brand needs?</h2>
+      <p>You do not need to arrive with all the answers.</p>
+      <p>Tell us where your business is today, what you are trying to build, and where you feel stuck. We will help you understand what comes next.</p>
+      <p class="final-cta__closing">Let's find the right direction together.</p>
+      <a href="#contact" class="final-cta__btn" id="servicesCtaContact">Work With Us <span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <!-- SERVICE TRANSITION SYSTEM — shared-element hero + ivory canvas, populated and animated via JS -->
+  <div class="detail-stage" id="detailStage" aria-hidden="true">
+    <div class="detail-hero" id="detailHero">
+      <div class="detail-hero__img-wrap"><img class="detail-hero__img" id="detailHeroImg" src="" alt=""></div>
+      <div class="detail-hero__overlay"></div>
+      <div class="detail-hero__content">
+        <button class="detail-hero__back" id="detailBack">← All Services</button>
+        <div class="detail-hero__text">
+          <span class="detail-hero__number" id="detailNumber"></span>
+          <h2 class="detail-hero__title" id="detailTitle"></h2>
+          <p class="detail-hero__statement" id="detailStatement"></p>
+        </div>
+      </div>
+    </div>
+    <div class="detail-canvas" id="detailCanvas">
+      <div class="detail-canvas__inner" id="detailCanvasInner"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- WORKS PAGE -->
+<div id="worksPage">
+
+  <section class="w-header">
+    <span class="eyebrow anim d1">Our Works</span>
+    <h1 class="w-title anim d2">Crafted. <em>Captured.</em> Connected.</h1>
+    <p class="w-subtitle anim d3">A collection of moments and creations that tell stories and drive results.</p>
+
+    <div class="w-filters anim d4">
+      <button class="w-filter-btn is-active" data-filter="all">All Works</button>
+      <button class="w-filter-btn" data-filter="videos">Videos</button>
+      <button class="w-filter-btn" data-filter="images">Images</button>
+    </div>
+  </section>
+
+  <div class="w-masonry" id="worksMasonry">
+
+    <!-- 1. Sample video -->
+    <article class="work-card size-tall" data-category="videos">
+      <div class="w-media">
+        <video src="sections/works/images/MiniV.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <figcaption class="w-caption">Sheer &amp; Silhouette — Editorial</figcaption>
+    </article>
+
+    <!-- 2. Doorway performer video -->
+    <article class="work-card size-tall" data-category="videos">
+      <div class="w-media">
+        <video src="sections/works/images/MiniV.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <figcaption class="w-caption">Heritage in Motion</figcaption>
+    </article>
+
+    <!-- 3. Seated portrait, red outfit — video -->
+    <article class="work-card size-medium" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>800 × 700</span>
+      </div>
+      <figcaption class="w-caption">Studio Sessions — Behind the Look</figcaption>
+    </article>
+
+    <!-- 4. Food plate — video -->
+    <article class="work-card size-square" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>700 × 550</span>
+      </div>
+      <figcaption class="w-caption">Kitchen Stories</figcaption>
+    </article>
+
+    <!-- 5. Beach / surfer sunset — big video -->
+    <article class="work-card size-wide" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>1600 × 900</span>
+      </div>
+      <figcaption class="w-caption">Golden Hour — Coastal Campaign</figcaption>
+    </article>
+
+    <!-- 6. Dal bowl image -->
+    <article class="work-card size-square" data-category="images">
+      <div class="w-media">
+        <!-- REPLACE: <img src="your-photo.jpg" alt="Description"> -->
+        <span class="w-ph-icon ph-image"></span>
+        <span class="w-ph-label">Image placeholder<br>700 × 550</span>
+      </div>
+      <figcaption class="w-caption">Traditions on a Plate</figcaption>
+    </article>
+
+    <!-- 7. Product packaging -->
+    <article class="work-card size-square" data-category="images">
+      <div class="w-media light">
+        <!-- REPLACE: <img src="your-product-shot.jpg" alt="Description"> -->
+        <span class="w-ph-icon ph-image dark"></span>
+        <span class="w-ph-label dark">Image placeholder<br>700 × 700</span>
+      </div>
+      <figcaption class="w-caption">Packaging &amp; Product Design</figcaption>
+    </article>
+
+    <!-- 8. Silhouette woman, window light — video -->
+    <article class="work-card size-tall" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>1080 × 1350</span>
+      </div>
+      <figcaption class="w-caption">Light &amp; Reflection</figcaption>
+    </article>
+
+    <!-- 9. Pottery wheel hands — video -->
+    <article class="work-card size-medium" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>800 × 550</span>
+      </div>
+      <figcaption class="w-caption">Made by Hand</figcaption>
+    </article>
+
+    <!-- 10. Meeting room skyline — video -->
+    <article class="work-card size-medium" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>900 × 550</span>
+      </div>
+      <figcaption class="w-caption">Boardroom Films</figcaption>
+    </article>
+
+    <!-- 11. Videographer behind camera — video -->
+    <article class="work-card size-tall" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>1080 × 1350</span>
+      </div>
+      <figcaption class="w-caption">On Set</figcaption>
+    </article>
+
+    <!-- 12. Skincare flatlay image -->
+    <article class="work-card size-square" data-category="images">
+      <div class="w-media">
+        <!-- REPLACE: <img src="your-photo.jpg" alt="Description"> -->
+        <img src="sections/works/images/Clienttalk-sample.png" alt="The Clothing Brand — Product Flatlay">
+        <span class="w-ph-icon ph-image"></span>
+        <span class="w-ph-label">Image placeholder<br>700 × 700</span>
+      </div>
+      <figcaption class="w-caption">Still Life — Product Flatlay</figcaption>
+    </article>
+
+    <!-- 13. Textile close-up image -->
+    <article class="work-card size-tall" data-category="images">
+      <div class="w-media">
+        <!-- REPLACE: <img src="your-photo.jpg" alt="Description"> -->
+        <span class="w-ph-icon ph-image"></span>
+        <span class="w-ph-label">Image placeholder<br>1080 × 1350</span>
+      </div>
+      <figcaption class="w-caption">Weave &amp; Texture</figcaption>
+    </article>
+
+    <!-- 14. Architectural interior image -->
+    <article class="work-card size-medium" data-category="images">
+      <div class="w-media light">
+        <!-- REPLACE: <img src="your-photo.jpg" alt="Description"> -->
+        <span class="w-ph-icon ph-image dark"></span>
+        <span class="w-ph-label dark">Image placeholder<br>800 × 700</span>
+      </div>
+      <figcaption class="w-caption">Interior — Showroom Study</figcaption>
+    </article>
+
+    <!-- 15. Portrait, natural light image -->
+    <article class="work-card size-square" data-category="images">
+      <div class="w-media">
+        <!-- REPLACE: <img src="your-photo.jpg" alt="Description"> -->
+        <span class="w-ph-icon ph-image"></span>
+        <span class="w-ph-label">Image placeholder<br>700 × 700</span>
+      </div>
+      <figcaption class="w-caption">Natural Light Portrait</figcaption>
+    </article>
+
+    <!-- 16. Street style motion — video -->
+    <article class="work-card size-medium" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>900 × 700</span>
+      </div>
+      <figcaption class="w-caption">Street Motion — B-Roll</figcaption>
+    </article>
+
+  </div>
+
+  <p class="w-no-results" id="worksNoResults" hidden>No works found in this category — yet.</p>
+
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PILLARS / TEAM PAGE
+     ══════════════════════════════════════════════ -->
+<div class="team-page-wrap" id="teamPage">
+
+  <section class="pillars-hero">
+    <p class="pillars-eyebrow anim">The Pillars of Zyphora</p>
+    <h2 class="anim d1">The Minds Behind <em>the Magic</em></h2>
+    <p class="pillars-sub anim d2">A team of driven college students, turning ideas into impact with creativity, strategy and passion.</p>
+    <div class="pillars-flourish anim d2"><span></span><i></i><span></span></div>
+  </section>
+
+  <section class="pillars-band" id="pillarsBand">
+    <div class="pillars-marquee" id="pillarsMarquee">
+      <div class="pillars-track" id="pillarsTrack"></div>
+    </div>
+    <p class="pillars-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="6"/><path d="M12 6v4"/></svg>
+      Hover over a card to know more
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="team-closing">
+    <p class="body-text anim" style="margin: 0 auto;">Every member of Zyphora contributes unique skills, fresh ideas, and a shared passion for building brands that people genuinely connect with. Together, we don't just create content — we create experiences that inspire, engage, and leave a lasting impact.</p>
+    <div class="team-signature anim d1">United by Creativity. Driven by Purpose.</div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════════
+     CONTACT SECTION
+     ══════════════════════════════════════════════ -->
+<div class="contact-section" id="contact">
+
+  <!-- accent pattern: connecting dots -->
+  <svg class="contact-bg-dots" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#B08D57" stroke-width="0.6" opacity="0.5">
+      <line x1="40" y1="60" x2="150" y2="120"/>
+      <line x1="150" y1="120" x2="270" y2="70"/>
+      <line x1="150" y1="120" x2="180" y2="250"/>
+      <line x1="270" y1="70" x2="365" y2="155"/>
+      <line x1="180" y1="250" x2="320" y2="290"/>
+      <line x1="180" y1="250" x2="95" y2="330"/>
+      <line x1="320" y1="290" x2="375" y2="380"/>
+      <line x1="365" y1="155" x2="320" y2="290"/>
+    </g>
+    <g fill="#B08D57">
+      <circle cx="40" cy="60" r="3"/>
+      <circle cx="150" cy="120" r="4.5"/>
+      <circle cx="270" cy="70" r="3"/>
+      <circle cx="365" cy="155" r="3.5"/>
+      <circle cx="180" cy="250" r="4.5"/>
+      <circle cx="320" cy="290" r="3.5"/>
+      <circle cx="95" cy="330" r="3"/>
+      <circle cx="375" cy="380" r="3"/>
+    </g>
+  </svg>
+
+  <div class="contact-inner">
+
+    <!-- LEFT: contact details -->
+    <div class="contact-info anim">
+      <div class="eyebrow">Get In Touch</div>
+      <h2>Elevate your digital<br>presence with <em>Zyphora.</em></h2>
+      <p class="body-text">
+        Looking forward to working with you and delivering the very best we can. To collaborate with us, reach out through the email address or Instagram provided below.
+      </p>
+      <p class="contact-quote">"We would love to have you on board…"</p>
+
+      <div class="contact-list">
+        <a href="tel:+919876543210" class="contact-row">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="contact-detail">
+            <span class="contact-tag">Phone</span>
+            <span class="contact-value">+91 98765 43210</span>
+          </span>
+        </a>
+
+        <a href="https://instagram.com/zyphora.agency" target="_blank" rel="noopener" class="contact-row">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <span class="contact-detail">
+            <span class="contact-tag">Instagram</span>
+            <span class="contact-value">@zyphora.agency</span>
+          </span>
+        </a>
+
+        <a href="https://linkedin.com/company/zyphora" target="_blank" rel="noopener" class="contact-row">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v6h-4v-6a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </span>
+          <span class="contact-detail">
+            <span class="contact-tag">LinkedIn</span>
+            <span class="contact-value">Zyphora — Digital Marketing</span>
+          </span>
+        </a>
+
+        <a href="mailto:hello@zyphora.com" class="contact-row">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 12 13 2 6"/></svg>
+          </span>
+          <span class="contact-detail">
+            <span class="contact-tag">Email</span>
+            <span class="contact-value">hello@zyphora.com</span>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT: inquiry form -->
+    <div class="contact-form-wrap anim d1">
+      <div class="contact-form-tag">Send Us A Message</div>
+      <form id="contactForm">
+        <div class="cf-row">
+          <div class="cf-field">
+            <label for="cf-name">Full Name</label>
+            <input type="text" id="cf-name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="cf-field">
+            <label for="cf-email">Email Address</label>
+            <input type="email" id="cf-email" name="email" placeholder="Your email address">
+          </div>
+        </div>
+        <div class="cf-field">
+          <label for="cf-phone">Phone Number</label>
+          <input type="tel" id="cf-phone" name="phone" placeholder="Your phone number">
+        </div>
+        <div class="cf-field">
+          <label for="cf-message">Your Message</label>
+          <textarea id="cf-message" name="message" placeholder="Tell us about your project or requirements..."></textarea>
+        </div>
+        <button type="submit" class="cf-submit">
+          Send via WhatsApp
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <p class="cf-note">Hit <span>Send via WhatsApp</span> and we'll open a chat with your details pre-filled — just tap send.</p>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- SITE FOOTER -->
+<footer>
+  <span class="footer-logo">ZYPHORA</span>
+  <div class="footer-meta">
+    <span>Est. 2026</span>
+    <span class="dot">&#10022;</span>
+    <span>Digital Marketing Studio</span>
+    <span class="dot">&#10022;</span>
+    <span>Modern. Strategic. Creative. Impactful.</span>
+  </div>
+</footer>
+
+<!-- GSAP + ScrollTrigger — power the Services & Pillars page animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- Shared behavior (scroll-reveal, nav scroll/toggle/active-highlight, anchor smooth-scroll) -->
+<script src="shared/common.js"></script>
+<!-- Per-section scripts — order kept identical to the original single-file build -->
+<script src="sections/works/works.js"></script>
+<script src="sections/pillars/pillars.js"></script>
+<script src="sections/contact/contact.js"></script>
+<script src="sections/services/services.js"></script>
+<script src="sections/landing/landing.js"></script>
+
+</body>
+</html>

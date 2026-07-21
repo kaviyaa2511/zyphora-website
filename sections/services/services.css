@@ -1,0 +1,458 @@
+
+#servicesPage {
+  display:block;
+  margin:0;
+  background:var(--bg);
+  color:var(--ivory);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+#servicesPage img { display:block; max-width:100%; }
+#servicesPage a { color:inherit; }
+#servicesPage button { font-family:inherit; }
+#servicesPage .eyebrow {
+  font-family:var(--font-body);
+  font-size:11px;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--brass);
+  font-weight:600;
+}
+#servicesPage .hairline {
+  height:1px;
+  background:linear-gradient(90deg, var(--brass), transparent);
+  border:none;
+}
+#servicesPage .visually-hidden {
+  position:absolute; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap;
+}
+#servicesPage /* Focus visibility for keyboard users */
+a:focus-visible, #servicesPage button:focus-visible, #servicesPage [tabindex]:focus-visible {
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+  border-radius:3px;
+}
+/* Body-scroll lock while the detail experience is open */
+body.detail-open { position:fixed; left:0; right:0; overflow:hidden; }
+#servicesPage /* ================================================================
+   2. OPENING / SERVICES INTRODUCTION  (STATE A)
+================================================================ */
+.hero-intro {
+  position:relative;
+  padding: calc(var(--nav-h) + 40px) clamp(20px,6vw,80px) 60px;
+  background:var(--bg);
+  overflow:hidden;
+}
+#servicesPage .hero-intro__texture {
+  position:absolute; inset:0; opacity:0.06; pointer-events:none;
+  background-image: repeating-linear-gradient(115deg, var(--brass) 0 1px, transparent 1px 90px);
+}
+#servicesPage .hero-intro__frame {
+  position:relative; z-index:1;
+  max-width:1180px; margin:0 auto;
+}
+#servicesPage .hero-intro__top {
+  position:relative; z-index:1;
+  display:flex; align-items:center; gap:14px;
+  margin-bottom:22px;
+}
+#servicesPage .hero-intro__index {
+  font-family:var(--font-display); font-size:13px; color:var(--brass); letter-spacing:0.28em;
+}
+#servicesPage .hero-intro__heading {
+  position:relative; z-index:1;
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:clamp(28px,4vw,48px);
+  line-height:1.18;
+  margin:0 0 30px;
+  max-width:18ch;
+  color:var(--ivory);
+  text-align:left;
+}
+#servicesPage .hero-intro__heading em { font-style:italic; color:var(--brass); }
+#servicesPage .hero-intro__cols {
+  position:relative; z-index:1;
+  display:grid; grid-template-columns: 1.3fr 1fr;
+  gap:clamp(24px,4vw,56px);
+  align-items:start;
+  border-top:1px solid rgba(176,141,87,0.18);
+  padding-top:26px;
+}
+#servicesPage .hero-intro__body-col {
+  display:grid; grid-template-columns:1fr;
+  gap:14px;
+}
+#servicesPage .hero-intro__body-col p {
+  font-size:15.5px; line-height:1.75; color:rgba(245,230,200,0.72); margin:0;
+}
+#servicesPage .hero-intro__quote {
+  border-left:2px solid var(--maroon);
+  padding-left:20px;
+}
+#servicesPage .hero-intro__closing {
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:18px;
+  line-height:1.5;
+  color:var(--ivory);
+  margin:0;
+}
+@media (max-width:900px) {#servicesPage .hero-intro__cols { grid-template-columns:1fr; }
+#servicesPage .hero-intro__quote { border-left:none; border-top:1px solid rgba(94,31,31,0.4); padding-left:0; padding-top:16px; }
+
+}
+#servicesPage /* ================================================================
+   3. CORE SERVICES INTRODUCTION
+================================================================ */
+.core-intro {
+  padding: 40px clamp(20px,6vw,80px) 20px;
+  display:flex; align-items:flex-end; justify-content:space-between; gap:24px;
+  flex-wrap:wrap;
+  border-top:1px solid var(--line);
+}
+#servicesPage .core-intro__left { max-width:520px; }
+#servicesPage .core-intro__left p {
+  margin:10px 0 0; color:rgba(245,230,200,0.65); font-size:15px; line-height:1.7;
+}
+#servicesPage .core-intro__count {
+  font-family:var(--font-display); font-size:15px; letter-spacing:0.14em; color:var(--brass);
+  white-space:nowrap;
+}
+#servicesPage /* ================================================================
+   4. CORE SERVICE TILE GALLERY (STATE B)
+================================================================ */
+/* Two independent flex columns: each column stacks its own tiles at their
+   natural heights, #servicesPage so a short tile next to a tall one never leaves a gap
+   (the failure mode of a strict CSS Grid with mismatched row heights). */
+.tiles-grid {
+  padding: 30px clamp(20px,6vw,80px) 110px;
+  display:flex;
+  align-items:flex-start;
+  gap: 18px;
+}
+#servicesPage .tiles-col {
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  flex:1 1 0;
+  min-width:0;
+}
+#servicesPage .tile {
+  position:relative;
+  border:0; padding:0; margin:0; text-align:left; cursor:pointer;
+  border-radius:6px;
+  overflow:hidden;
+  color:var(--ivory);
+  background:var(--bg-raised);
+  isolation:isolate;
+  will-change:transform;
+  width:100%;
+}
+#servicesPage .tile:focus-visible { outline-offset:4px; }
+#servicesPage .tile.h-lg { height:clamp(360px,42vw,560px); }
+#servicesPage .tile.h-md { height:clamp(300px,32vw,440px); }
+#servicesPage .tile.h-sm { height:clamp(240px,24vw,340px); }
+#servicesPage .tile__img-wrap {
+  position:absolute; inset:0; overflow:hidden;
+}
+#servicesPage .tile__img {
+  position:absolute; inset:-6%;
+  width:112%; height:112%;
+  object-fit:cover;
+  filter:grayscale(38%) brightness(0.62) contrast(1.05) sepia(8%);
+  transform:scale(1.02);
+  transition:transform .8s var(--ease-premium), filter .5s ease;
+}
+#servicesPage .tile__overlay {
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(11,10,9,0.15) 0%, rgba(11,10,9,0.55) 62%, rgba(11,10,9,0.88) 100%),
+    linear-gradient(90deg, rgba(92,31,31,0.12), transparent 60%);
+}
+#servicesPage .tile__content {
+  position:relative; z-index:2;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+  padding:clamp(18px,2.4vw,32px);
+}
+#servicesPage .tile__number {
+  font-family:var(--font-display); font-size:14px; color:var(--brass); letter-spacing:0.1em;
+}
+#servicesPage .tile__title {
+  font-family:var(--font-display); font-weight:500;
+  font-size:clamp(22px,2vw,32px); line-height:1.15;
+  margin-top:auto;
+  max-width:22ch;
+  transition:transform .5s var(--ease-premium);
+}
+#servicesPage .tile__statement {
+  font-size:13.5px; color:rgba(245,230,200,0.7);
+  margin-top:10px; max-width:34ch; line-height:1.5;
+}
+#servicesPage .tile__footer {
+  display:flex; align-items:center; justify-content:space-between; margin-top:16px;
+}
+#servicesPage .tile__explore {
+  font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--brass); opacity:0.65;
+  transition:opacity .3s ease, letter-spacing .3s ease;
+}
+#servicesPage .tile__edge-line {
+  position:absolute; left:0; top:0; width:2px; height:0%;
+  background:var(--brass);
+  transition:height .55s var(--ease-premium);
+}
+#servicesPage .tile:hover .tile__edge-line, #servicesPage .tile:focus-visible .tile__edge-line { height:100%; }
+#servicesPage .tile:hover .tile__explore, #servicesPage .tile:focus-visible .tile__explore { opacity:1; letter-spacing:0.22em; }
+#servicesPage .tile:hover .tile__img, #servicesPage .tile:focus-visible .tile__img { transform:scale(1.06); filter:grayscale(20%) brightness(0.68) contrast(1.05) sepia(6%); }
+@media (max-width:820px) {#servicesPage .tiles-grid { flex-direction:column; }
+#servicesPage /* display:contents removes the column wrapper visually — its tiles become
+     direct flex children of .tiles-grid, #servicesPage and the inline "order" style set in
+     JS (matching each tile's original index) puts them back in 1→8 sequence
+     even though the markup interleaves them into two columns. */
+  .tiles-col { display:contents; }
+#servicesPage .tile.h-lg { height:380px; }
+#servicesPage .tile.h-md { height:320px; }
+#servicesPage .tile.h-sm { height:260px; }
+
+}
+#servicesPage /* ================================================================
+   5. DETAIL EXPERIENCE — hero clone + ivory content canvas
+   (STATES C, #servicesPage D, #servicesPage E, #servicesPage F — shared-element transition system)
+================================================================ */
+.detail-stage {
+  position:fixed; inset:0; z-index:900;
+  pointer-events:none;
+  visibility:hidden;
+  overflow-anchor:none;
+}
+#servicesPage .detail-stage.is-active {
+  pointer-events:auto; visibility:visible;
+  overflow-y:auto; overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+}
+#servicesPage .detail-hero {
+  position:fixed;
+  overflow:hidden;
+  border-radius:6px;
+  background:var(--bg-raised);
+  z-index:2;
+}
+#servicesPage .detail-hero__img-wrap { position:absolute; inset:0; overflow:hidden; }
+#servicesPage .detail-hero__img {
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;
+  filter:grayscale(30%) brightness(0.6) contrast(1.05) sepia(8%);
+}
+#servicesPage .detail-hero__overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(11,10,9,0.25), rgba(11,10,9,0.78) 75%, rgba(11,10,9,0.94));
+}
+#servicesPage .detail-hero__content {
+  position:absolute; inset:0; z-index:2;
+  padding:clamp(20px,4vw,56px);
+  display:flex; flex-direction:column;
+  gap:clamp(32px,7vw,64px); /* guarantees real breathing room below the back button no matter how tall the heading gets */
+}
+#servicesPage .detail-hero__back {
+  position:relative; /* in-flow: reserves real space so text below can never overlap it */
+  align-self:flex-start;
+  display:flex; align-items:center; gap:8px;
+  background:none; border:none; color:var(--ivory); cursor:pointer;
+  font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+  padding:10px 4px; margin:clamp(48px,6vw,64px) 0 0; opacity:0.85;
+  transition:opacity .25s ease, transform .25s ease;
+}
+#servicesPage .detail-hero__back:hover { opacity:1; transform:translateX(-3px); }
+#servicesPage .detail-hero__back.is-compact {
+  position:fixed; top:18px; left:clamp(20px,4vw,56px); margin:0;
+  background:rgba(11,10,9,0.7); backdrop-filter:blur(6px);
+  border-radius:20px; padding:8px 14px 8px 10px;
+  transition:opacity .3s ease, background .3s ease, padding .3s ease;
+}
+#servicesPage .detail-hero__text {
+  margin-top:auto; /* anchors the text block to the bottom, below the back button's flow space */
+  padding-bottom:4px;
+}
+#servicesPage .detail-hero__number { font-family:var(--font-display); font-size:16px; color:var(--brass); letter-spacing:0.1em; opacity:0; transform:translateY(10px); }
+#servicesPage .detail-hero__title {
+  font-family:var(--font-display); font-weight:500;
+  font-size:clamp(26px,4.4vw,50px); line-height:1.12; margin:10px 0 12px;
+  max-width:min(28ch, 90%);
+  opacity:0; transform:translateY(14px);
+}
+#servicesPage .detail-hero__statement {
+  font-size:15px; color:rgba(245,230,200,0.78); max-width:42ch; line-height:1.6;
+  opacity:0; transform:translateY(10px);
+}
+#servicesPage .detail-canvas {
+  position:fixed; left:0; right:0; bottom:0;
+  background:var(--ivory-canvas);
+  color:var(--ink);
+  border-radius:22px 22px 0 0;
+  z-index:1;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  transform:translateY(14px);
+  opacity:0;
+}
+#servicesPage .detail-canvas__inner {
+  max-width:1180px; margin:0 auto;
+  padding: 56px clamp(20px,5vw,64px) 0;
+}
+#servicesPage .d-section { padding: 64px 0; border-top:1px solid rgba(32,26,18,0.1); }
+#servicesPage .d-section:first-child { border-top:none; padding-top:8px; }
+#servicesPage .d-label {
+  font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--brass); font-weight:700;
+}
+#servicesPage .d-intro { display:grid; grid-template-columns: 1.1fr 1fr; gap:48px; align-items:start; }
+#servicesPage .d-intro__statement {
+  font-family:var(--font-display); font-weight:500; font-size:clamp(24px,3vw,38px); line-height:1.2; margin:12px 0 0;
+}
+#servicesPage .d-intro__body p { font-size:15.5px; line-height:1.85; color:rgba(32,26,18,0.78); margin:0 0 16px; }
+#servicesPage .d-flow { display:grid; grid-template-columns: 0.5fr 1.5fr; gap:32px; }
+#servicesPage .d-flow__num { font-family:var(--font-display); font-size:64px; color:var(--brass); opacity:0.35; line-height:1; }
+#servicesPage .d-flow__text { font-size:16px; line-height:1.85; color:rgba(32,26,18,0.82); max-width:56ch; }
+#servicesPage .d-flow__text p { margin:0 0 14px; }
+#servicesPage .d-capabilities { list-style:none; margin:18px 0 0; padding:0; }
+#servicesPage .d-capabilities li {
+  display:flex; align-items:baseline; gap:22px;
+  padding:20px 0; border-top:1px solid rgba(32,26,18,0.12);
+  transition:padding-left .35s var(--ease-premium);
+}
+#servicesPage .d-capabilities li:first-child { border-top:none; }
+#servicesPage .d-capabilities li:hover { padding-left:10px; }
+#servicesPage .d-cap-index { font-family:var(--font-display); font-size:14px; color:var(--brass); min-width:28px; }
+#servicesPage .d-cap-name { font-size:17px; font-weight:500; }
+#servicesPage .d-outcome { text-align:left; padding: 30px 0 90px; }
+#servicesPage .d-outcome__label { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--brass); font-weight:700; }
+#servicesPage .d-outcome__text {
+  font-family:var(--font-display); font-weight:500;
+  font-size:clamp(22px,2.6vw,32px); line-height:1.32; max-width:42ch; margin:16px 0 0;
+}
+@media (max-width:820px) {#servicesPage .d-intro, #servicesPage .d-flow { grid-template-columns:1fr; gap:20px; }
+#servicesPage .d-flow__num { font-size:44px; }
+
+}
+#servicesPage /* ================================================================
+   6. ONGOING GROWTH & SUPPORT
+================================================================ */
+.support-section {
+  padding: 100px clamp(20px,6vw,80px);
+  background:var(--bg);
+  border-top:1px solid var(--line);
+}
+#servicesPage .support-section__head { max-width:640px; margin-bottom:52px; }
+#servicesPage .support-section__head h2 {
+  font-family:var(--font-display); font-weight:500;
+  font-size:clamp(28px,3.6vw,46px); line-height:1.15; margin:14px 0 18px;
+}
+#servicesPage .support-section__head p { color:rgba(245,230,200,0.68); line-height:1.8; font-size:15.5px; margin:0; }
+
+/* Open content list — no rules or dividers, just generous vertical
+   rhythm and a soft hover fill to separate each item. */
+#servicesPage #supportRows { display:flex; flex-direction:column; gap:4px; }
+#servicesPage .support-row {
+  position:relative;
+  overflow:hidden;
+}
+#servicesPage .support-row.is-open, #servicesPage .support-row:hover { background:rgba(176,141,87,0.05); }
+#servicesPage .support-row__trigger {
+  width:100%; background:none; border:none; color:inherit; cursor:pointer;
+  display:flex; align-items:center; gap:32px;
+  padding:26px clamp(20px,3vw,44px); text-align:left;
+}
+#servicesPage .support-row__num {
+  font-family:var(--font-display); font-weight:400;
+  font-size:clamp(20px,2.2vw,26px); line-height:1;
+  color:var(--gold-border); min-width:40px;
+  transition:color .3s ease;
+}
+#servicesPage .support-row.is-open .support-row__num, #servicesPage .support-row__trigger:hover .support-row__num { color:var(--gold); }
+#servicesPage .support-row__title {
+  font-family:var(--font-display); font-size:clamp(19px,2.1vw,25px); font-weight:500;
+  min-width:280px; letter-spacing:0.005em; text-transform:none;
+  transition:color .3s ease;
+}
+#servicesPage .support-row__trigger:hover .support-row__title { color:var(--gold); }
+#servicesPage .support-row__statement { color:rgba(245,230,200,0.5); font-size:13.5px; font-style:italic; flex:1; }
+#servicesPage .support-row__plus {
+  width:28px; height:28px; position:relative; flex-shrink:0;
+  border:1px solid var(--gold-border);
+  transition:border-color .35s ease, background-color .35s ease;
+}
+#servicesPage .support-row__plus::before, #servicesPage .support-row__plus::after {
+  content:''; position:absolute; background:var(--gold); top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  transition:background-color .35s ease;
+}
+#servicesPage .support-row__plus::before { width:12px; height:1px; }
+#servicesPage .support-row__plus::after { width:1px; height:12px; transition:transform .35s var(--ease-premium); }
+#servicesPage .support-row.is-open .support-row__plus::after { transform:translate(-50%,-50%) rotate(90deg) scaleY(0); }
+#servicesPage .support-row.is-open .support-row__plus, #servicesPage .support-row__trigger:hover .support-row__plus { border-color:var(--gold); }
+#servicesPage .support-row.is-open .support-row__plus { background:var(--gold); }
+#servicesPage .support-row.is-open .support-row__plus::before, #servicesPage .support-row.is-open .support-row__plus::after { background:var(--bg); }
+#servicesPage .support-row__panel { height:0; overflow:hidden; }
+#servicesPage .support-row__panel-inner {
+  display:grid; grid-template-columns:1fr 1fr; gap:40px;
+  padding:6px clamp(20px,3vw,44px) 36px 96px;
+  margin:0;
+}
+#servicesPage .support-row__panel-inner p { color:rgba(245,230,200,0.72); line-height:1.8; font-size:15px; margin:20px 0 0; max-width:48ch; }
+#servicesPage .support-row__includes { list-style:none; margin:20px 0 0; padding:0; columns:2; column-gap:24px; }
+#servicesPage .support-row__includes li {
+  font-size:13.5px; color:rgba(245,230,200,0.85);
+  padding:6px 0;
+  break-inside:avoid;
+  position:relative; padding-left:16px;
+}
+#servicesPage .support-row__includes li::before {
+  content:''; position:absolute; left:0; top:14px; width:6px; height:1px; background:var(--gold);
+}
+@media (max-width:760px) {#servicesPage .support-row__trigger { flex-wrap:wrap; gap:14px; padding:22px 20px; }
+#servicesPage .support-row__num { min-width:0; font-size:22px; }
+#servicesPage .support-row__title { min-width:0; }
+#servicesPage .support-row__statement { display:none; }
+#servicesPage .support-row__panel-inner { grid-template-columns:1fr; padding:4px 20px 32px; }
+#servicesPage .support-row__includes { columns:1; }
+
+}
+#servicesPage /* ================================================================
+   7. FINAL CTA
+================================================================ */
+.final-cta {
+  position:relative;
+  padding: 130px clamp(20px,6vw,80px) 120px;
+  background:var(--bg);
+  border-top:1px solid var(--line);
+  overflow:hidden;
+}
+#servicesPage .final-cta__glow {
+  position:absolute; width:520px; height:520px; border-radius:50%;
+  background:radial-gradient(circle, rgba(176,141,87,0.16), transparent 70%);
+  top:-160px; right:-120px; pointer-events:none;
+}
+#servicesPage .final-cta__content { position:relative; max-width:760px; }
+#servicesPage .final-cta h2 {
+  font-family:var(--font-display); font-weight:500;
+  font-size:clamp(30px,5vw,58px); line-height:1.14; margin:14px 0 24px;
+}
+#servicesPage .final-cta p { color:rgba(245,230,200,0.72); font-size:16px; line-height:1.85; margin:0 0 8px; }
+#servicesPage .final-cta__closing { font-family:var(--font-display); font-style:italic; font-size:19px; color:var(--ivory); margin-top:20px; }
+#servicesPage .final-cta__btn {
+  display:inline-flex; align-items:center; gap:10px;
+  margin-top:40px; text-decoration:none; color:var(--bg);
+  background:var(--ivory); padding:16px 30px; border-radius:2px;
+  font-size:13px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;
+  position:relative; overflow:hidden;
+  transition: transform .4s var(--ease-premium), box-shadow .4s var(--ease-premium);
+  will-change: transform;
+}
+#servicesPage .final-cta__btn span.arrow { transition:transform .3s var(--ease-premium); }
+#servicesPage .final-cta__btn:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.25); }
+#servicesPage .final-cta__btn:hover span.arrow { transform:translateX(6px); }
+#servicesPage .final-cta__btn:active { transform: translateY(-1px) scale(0.97); }
+#servicesPage /* Reveal-on-scroll helper (progressively enhanced by JS/ScrollTrigger) */
+.reveal { opacity:0; transform:translateY(24px); }
+#servicesPage .reveal.is-visible { opacity:1; transform:none; transition:opacity .8s var(--ease-premium), transform .8s var(--ease-premium); }

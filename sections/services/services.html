@@ -1,0 +1,87 @@
+<!-- Standalone preview note:
+This file contains only the Services section's own markup, styles, and script.
+It is NOT a full page by itself — open the parent /index.html to see the
+complete Zyphora site with nav, fonts, and shared behavior included.
+This file exists so the Services section can be edited/reused in isolation. -->
+<link rel="stylesheet" href="services.css">
+
+<div id="servicesPage">
+
+  <!-- SERVICES INTRODUCTION — opening editorial section (STATE A) -->
+  <section class="hero-intro">
+    <div class="hero-intro__texture" aria-hidden="true"></div>
+    <div class="hero-intro__frame">
+      <div class="hero-intro__top anim">
+        <hr class="hairline" style="width:48px; margin:0;">
+        <span class="hero-intro__index">00 / 08</span>
+      </div>
+      <h1 class="hero-intro__heading anim d1">We help brands find direction, build presence, and <em>grow with purpose.</em></h1>
+      <div class="hero-intro__cols anim d2">
+        <div class="hero-intro__body-col">
+          <p>A strong digital presence is not built by doing everything. It is built by doing the right things, in the right way, for the right audience.</p>
+          <p>At Zyphora, we bring strategy, creativity, technology, and communication together to help businesses become more visible, relevant, and memorable. From shaping the first idea to executing campaigns and measuring growth, we work across every important part of a brand's digital journey.</p>
+        </div>
+        <div class="hero-intro__quote">
+          <p class="hero-intro__closing">Because growth should never begin with noise. It should begin with direction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE SERVICES INTRODUCTION -->
+  <section class="core-intro anim">
+    <div class="core-intro__left">
+      <span class="eyebrow">Core Services</span>
+      <p>Eight connected disciplines. One purpose: helping brands move forward with clarity.</p>
+    </div>
+    <span class="core-intro__count">08 DISCIPLINES</span>
+  </section>
+
+  <!-- CORE SERVICE TILE GRID (STATE B) — rendered from the SERVICES data array in the script below -->
+  <section id="tilesGrid" class="tiles-grid" aria-label="Core services"></section>
+
+  <!-- ONGOING GROWTH & SUPPORT -->
+  <section class="support-section">
+    <div class="support-section__head anim">
+      <span class="eyebrow">Ongoing Growth &amp; Support</span>
+      <h2>Growth does not end when something goes live.</h2>
+      <p>Launching a website, campaign, or strategy is only the beginning. As businesses grow, their digital presence needs continued attention, improvement, communication, and care. Our ongoing support services help brands stay connected, informed, and ready for what comes next.</p>
+    </div>
+    <div id="supportRows" class="anim d1"></div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="servicesFinalCta">
+    <div class="final-cta__glow" aria-hidden="true"></div>
+    <div class="final-cta__content anim">
+      <span class="eyebrow">Work With Us</span>
+      <h2>Not sure which service your brand needs?</h2>
+      <p>You do not need to arrive with all the answers.</p>
+      <p>Tell us where your business is today, what you are trying to build, and where you feel stuck. We will help you understand what comes next.</p>
+      <p class="final-cta__closing">Let's find the right direction together.</p>
+      <a href="#contact" class="final-cta__btn" id="servicesCtaContact">Work With Us <span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <!-- SERVICE TRANSITION SYSTEM — shared-element hero + ivory canvas, populated and animated via JS -->
+  <div class="detail-stage" id="detailStage" aria-hidden="true">
+    <div class="detail-hero" id="detailHero">
+      <div class="detail-hero__img-wrap"><img class="detail-hero__img" id="detailHeroImg" src="" alt=""></div>
+      <div class="detail-hero__overlay"></div>
+      <div class="detail-hero__content">
+        <button class="detail-hero__back" id="detailBack">← All Services</button>
+        <div class="detail-hero__text">
+          <span class="detail-hero__number" id="detailNumber"></span>
+          <h2 class="detail-hero__title" id="detailTitle"></h2>
+          <p class="detail-hero__statement" id="detailStatement"></p>
+        </div>
+      </div>
+    </div>
+    <div class="detail-canvas" id="detailCanvas">
+      <div class="detail-canvas__inner" id="detailCanvasInner"></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="services.js"></script>

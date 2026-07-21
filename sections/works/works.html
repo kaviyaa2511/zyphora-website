@@ -1,0 +1,187 @@
+<!-- Standalone preview note:
+This file contains only the Works section's own markup, styles, and script.
+It is NOT a full page by itself — open the parent /index.html to see the
+complete Zyphora site with nav, fonts, and shared behavior included.
+This file exists so the Works section can be edited/reused in isolation. -->
+<link rel="stylesheet" href="works.css">
+
+<div id="worksPage">
+
+  <section class="w-header">
+    <span class="eyebrow anim d1">Our Works</span>
+    <h1 class="w-title anim d2">Crafted. <em>Captured.</em> Connected.</h1>
+    <p class="w-subtitle anim d3">A collection of moments and creations that tell stories and drive results.</p>
+
+    <div class="w-filters anim d4">
+      <button class="w-filter-btn is-active" data-filter="all">All Works</button>
+      <button class="w-filter-btn" data-filter="videos">Videos</button>
+      <button class="w-filter-btn" data-filter="images">Images</button>
+    </div>
+  </section>
+
+  <div class="w-masonry" id="worksMasonry">
+
+    <!-- 1. Sample video -->
+    <article class="work-card size-tall" data-category="videos">
+      <div class="w-media">
+        <video src="images/MiniV.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <figcaption class="w-caption">Sheer &amp; Silhouette — Editorial</figcaption>
+    </article>
+
+    <!-- 2. Doorway performer video -->
+    <article class="work-card size-tall" data-category="videos">
+      <div class="w-media">
+        <video src="images/MiniV.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <figcaption class="w-caption">Heritage in Motion</figcaption>
+    </article>
+
+    <!-- 3. Seated portrait, red outfit — video -->
+    <article class="work-card size-medium" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>800 × 700</span>
+      </div>
+      <figcaption class="w-caption">Studio Sessions — Behind the Look</figcaption>
+    </article>
+
+    <!-- 4. Food plate — video -->
+    <article class="work-card size-square" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>700 × 550</span>
+      </div>
+      <figcaption class="w-caption">Kitchen Stories</figcaption>
+    </article>
+
+    <!-- 5. Beach / surfer sunset — big video -->
+    <article class="work-card size-wide" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>1600 × 900</span>
+      </div>
+      <figcaption class="w-caption">Golden Hour — Coastal Campaign</figcaption>
+    </article>
+
+    <!-- 6. Dal bowl image -->
+    <article class="work-card size-square" data-category="images">
+      <div class="w-media">
+        <!-- REPLACE: <img src="your-photo.jpg" alt="Description"> -->
+        <span class="w-ph-icon ph-image"></span>
+        <span class="w-ph-label">Image placeholder<br>700 × 550</span>
+      </div>
+      <figcaption class="w-caption">Traditions on a Plate</figcaption>
+    </article>
+
+    <!-- 7. Product packaging -->
+    <article class="work-card size-square" data-category="images">
+      <div class="w-media light">
+        <!-- REPLACE: <img src="your-product-shot.jpg" alt="Description"> -->
+        <span class="w-ph-icon ph-image dark"></span>
+        <span class="w-ph-label dark">Image placeholder<br>700 × 700</span>
+      </div>
+      <figcaption class="w-caption">Packaging &amp; Product Design</figcaption>
+    </article>
+
+    <!-- 8. Silhouette woman, window light — video -->
+    <article class="work-card size-tall" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>1080 × 1350</span>
+      </div>
+      <figcaption class="w-caption">Light &amp; Reflection</figcaption>
+    </article>
+
+    <!-- 9. Pottery wheel hands — video -->
+    <article class="work-card size-medium" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>800 × 550</span>
+      </div>
+      <figcaption class="w-caption">Made by Hand</figcaption>
+    </article>
+
+    <!-- 10. Meeting room skyline — video -->
+    <article class="work-card size-medium" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>900 × 550</span>
+      </div>
+      <figcaption class="w-caption">Boardroom Films</figcaption>
+    </article>
+
+    <!-- 11. Videographer behind camera — video -->
+    <article class="work-card size-tall" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>1080 × 1350</span>
+      </div>
+      <figcaption class="w-caption">On Set</figcaption>
+    </article>
+
+    <!-- 12. Skincare flatlay image -->
+    <article class="work-card size-square" data-category="images">
+      <div class="w-media">
+        <!-- REPLACE: <img src="your-photo.jpg" alt="Description"> -->
+        <img src="images/Clienttalk-sample.png" alt="The Clothing Brand — Product Flatlay">
+        <span class="w-ph-icon ph-image"></span>
+        <span class="w-ph-label">Image placeholder<br>700 × 700</span>
+      </div>
+      <figcaption class="w-caption">Still Life — Product Flatlay</figcaption>
+    </article>
+
+    <!-- 13. Textile close-up image -->
+    <article class="work-card size-tall" data-category="images">
+      <div class="w-media">
+        <!-- REPLACE: <img src="your-photo.jpg" alt="Description"> -->
+        <span class="w-ph-icon ph-image"></span>
+        <span class="w-ph-label">Image placeholder<br>1080 × 1350</span>
+      </div>
+      <figcaption class="w-caption">Weave &amp; Texture</figcaption>
+    </article>
+
+    <!-- 14. Architectural interior image -->
+    <article class="work-card size-medium" data-category="images">
+      <div class="w-media light">
+        <!-- REPLACE: <img src="your-photo.jpg" alt="Description"> -->
+        <span class="w-ph-icon ph-image dark"></span>
+        <span class="w-ph-label dark">Image placeholder<br>800 × 700</span>
+      </div>
+      <figcaption class="w-caption">Interior — Showroom Study</figcaption>
+    </article>
+
+    <!-- 15. Portrait, natural light image -->
+    <article class="work-card size-square" data-category="images">
+      <div class="w-media">
+        <!-- REPLACE: <img src="your-photo.jpg" alt="Description"> -->
+        <span class="w-ph-icon ph-image"></span>
+        <span class="w-ph-label">Image placeholder<br>700 × 700</span>
+      </div>
+      <figcaption class="w-caption">Natural Light Portrait</figcaption>
+    </article>
+
+    <!-- 16. Street style motion — video -->
+    <article class="work-card size-medium" data-category="videos">
+      <div class="w-media">
+        <!-- REPLACE: <video src="your-video.mp4" ...></video> -->
+        <span class="w-ph-icon ph-video"></span>
+        <span class="w-ph-label">Video placeholder<br>900 × 700</span>
+      </div>
+      <figcaption class="w-caption">Street Motion — B-Roll</figcaption>
+    </article>
+
+  </div>
+
+  <p class="w-no-results" id="worksNoResults" hidden>No works found in this category — yet.</p>
+
+</div>
+
+<script src="works.js"></script>
