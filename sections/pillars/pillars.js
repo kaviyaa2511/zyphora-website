@@ -95,17 +95,58 @@
   if (!track) return;
 
   /* Render the team twice back-to-back so the marquee can loop seamlessly:
-     the CSS keyframes translate the track by exactly -50% (one full set),
-     then snap back to 0 — invisible to the eye since the second half is
-     an identical copy of the first. */
+     we translate the track by exactly -50% (one full set) then snap back
+     to 0 — invisible to the eye since the second half is an identical
+     copy of the first. */
   const setHTML = TEAM.map(cardHTML).join("");
   track.innerHTML = setHTML + setHTML;
 
+  /* ── Marquee motion: driven by JS (rAF), not a CSS @keyframes animation ──
+     Safari/WebKit (macOS *and* iOS — both share the same engine) has a
+     long-standing bug where flipping `animation-play-state` from paused
+     back to running does not reliably resume a @keyframes animation from
+     where it was paused; it can silently jump the animation back to 0%.
+     Because the marquee needs to pause every time a card is tapped open
+     (and resume when it's closed), that bug meant the track kept getting
+     reset to the very start — i.e. right back to Harshini/Jaswanth, the
+     first two cards — instead of ever scrolling further. Managing the
+     x-offset ourselves with requestAnimationFrame and pausing via a plain
+     boolean means there's no animation state for the browser to corrupt. */
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let offset = 0;
+  let paused = false;
+  let halfWidth = 0;
+  let lastTime = null;
+
+  function measure(){ halfWidth = track.scrollWidth / 2; }
+
+  /* Same feel as the old per-breakpoint animation durations (46s / 34s /
+     26s to cross one full set), just expressed as pixels-per-second so a
+     resize doesn't require restarting anything. */
+  function speed(){
+    const w = window.innerWidth;
+    const duration = w <= 560 ? 26 : w <= 900 ? 34 : 46;
+    return halfWidth / duration;
+  }
+
+  function tick(now){
+    if (lastTime === null) lastTime = now;
+    const dt = (now - lastTime) / 1000;
+    lastTime = now;
+    if (!paused && halfWidth > 0) {
+      offset -= speed() * dt;
+      if (offset <= -halfWidth) offset += halfWidth;
+      track.style.transform = `translateX(${offset}px)`;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  measure();
+  window.addEventListener('resize', measure);
+  if (!reduceMotion) requestAnimationFrame(tick);
+
   /* Touch/tap support: since hover doesn't exist on touch devices,
-     tapping a card toggles the flip via an .is-open class instead.
-     The marquee's animation is paused/resumed directly here rather than
-     via :hover, since iOS treats a tap as a hover state that never
-     releases — leaving the marquee frozen after the first tap. */
+     tapping a card toggles the flip via an .is-open class instead. */
   const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
   if (isTouch) {
     document.addEventListener('click', (e) => {
@@ -118,7 +159,11 @@
       } else {
         track.querySelectorAll('.pillar-slot.is-open').forEach(s => s.classList.remove('is-open'));
       }
-      track.classList.toggle('is-paused', !!track.querySelector('.pillar-slot.is-open'));
+      paused = !!track.querySelector('.pillar-slot.is-open');
     });
+  } else {
+    /* Desktop mouse: pause on hover, same as the old :hover CSS rule. */
+    track.addEventListener('mouseenter', () => { paused = true; });
+    track.addEventListener('mouseleave', () => { paused = false; });
   }
 })();

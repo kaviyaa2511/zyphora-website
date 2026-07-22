@@ -57,21 +57,20 @@
   align-items: stretch;
   gap: 20px;
   width: max-content;
-  animation: pillarsScroll 46s linear infinite;
-}
-.pillars-track:hover { animation-play-state: paused; }
-@media (hover: none), (pointer: coarse) {
-  .pillars-track:hover { animation-play-state: running; }
-}
-.pillars-track.is-paused { animation-play-state: paused; }
-
-@keyframes pillarsScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pillars-track { animation: none; }
+  /* Scroll position is driven by JS (see pillars.js) rather than a CSS
+     @keyframes animation. Safari/WebKit (both macOS and iOS) has a bug
+     where toggling animation-play-state from paused back to running
+     can silently snap a running @keyframes animation back to 0%
+     instead of resuming from where it was paused. Since pausing here
+     happens every time a card is tapped open/closed, that bug made the
+     marquee appear to reset to the very first cards (Harshini,
+     Jaswanth) over and over instead of ever scrolling further — and
+     made the whole thing feel stuck/slow. Driving translateX manually
+     via requestAnimationFrame and pausing with a plain JS flag avoids
+     touching animation-play-state entirely, so there's no state for
+     WebKit to lose. */
+  transform: translateX(0);
+  will-change: transform;
 }
 
 /* ── Card slot (fixed footprint — keeps the track's rhythm stable
@@ -269,14 +268,10 @@
   .pillar-back-content { padding: 1rem; }
   .pillar-back-bio { -webkit-line-clamp: 3; }
 }
-@media (max-width: 900px) {
-  .pillars-track { animation-duration: 34s; }
-}
 @media (max-width: 560px) {
   .pillars-marquee { padding: 3.2rem 0; }
   .pillar-slot { flex-basis: 240px; height: 300px; }
   .pillar-card { width: 240px; height: 300px; }
-  .pillars-track { animation-duration: 26s; }
 }
 @media (max-width: 560px) and (hover: hover) and (pointer: fine) {
   .pillar-slot:hover .pillar-card { width: min(88vw, 380px); height: 340px; }
