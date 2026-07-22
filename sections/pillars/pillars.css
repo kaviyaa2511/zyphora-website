@@ -287,3 +287,31 @@
   .pillar-back-photo { flex: 0 0 42%; border-right: none; border-bottom: 1px solid var(--gold-border); }
   .pillar-back-bio { -webkit-line-clamp: 3; max-width: none; }
 }
+
+/* ── Touch-device flip override ──────────────────────────────────
+   iOS Safari cannot reliably compose two nested rotateY(180deg)
+   transforms (a long-standing WebKit rendering bug), which is what
+   the desktop "flip" trick above relies on — it can render the back
+   face mirrored/upside-down instead of cancelling out to normal.
+   On touch devices we skip 3D rotation entirely and do a plain
+   opacity crossfade instead: both faces already sit in the exact
+   same spot (position:absolute; inset:0 from .pillar-face), so
+   fading one out while fading the other in achieves the same
+   visual "flip" result without asking the browser to do any 3D
+   transform math at all. */
+@media (hover: none), (pointer: coarse) {
+  .pillar-card-inner { transform: none !important; }
+  .pillar-slot.is-open .pillar-card-inner {
+    transform: none !important;
+    box-shadow: 0 0 0 1px var(--gold), 0 30px 70px rgba(0,0,0,0.6), 0 0 46px rgba(176,141,87,0.35);
+  }
+  .pillar-face {
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    transition: opacity 0.5s ease;
+  }
+  .pillar-back { transform: none; opacity: 0; pointer-events: none; }
+  .pillar-front { opacity: 1; }
+  .pillar-slot.is-open .pillar-front { opacity: 0; pointer-events: none; }
+  .pillar-slot.is-open .pillar-back { opacity: 1; pointer-events: auto; }
+}
