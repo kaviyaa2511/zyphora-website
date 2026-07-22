@@ -60,6 +60,10 @@
   animation: pillarsScroll 46s linear infinite;
 }
 .pillars-track:hover { animation-play-state: paused; }
+@media (hover: none), (pointer: coarse) {
+  .pillars-track:hover { animation-play-state: running; }
+}
+.pillars-track.is-paused { animation-play-state: paused; }
 
 @keyframes pillarsScroll {
   from { transform: translateX(0); }
@@ -78,7 +82,10 @@
   height: 360px;
   perspective: 1400px;
 }
-.pillar-slot:hover, .pillar-slot.is-open { z-index: 30; }
+@media (hover: hover) and (pointer: fine) {
+  .pillar-slot:hover { z-index: 30; }
+}
+.pillar-slot.is-open { z-index: 30; }
 
 .pillar-card {
   position: absolute;
@@ -87,7 +94,12 @@
   transform: translate(-50%, -50%);
   transition: width 0.55s cubic-bezier(.22,1,.36,1), height 0.55s cubic-bezier(.22,1,.36,1);
 }
-.pillar-slot:hover .pillar-card,
+@media (hover: hover) and (pointer: fine) {
+  .pillar-slot:hover .pillar-card {
+    width: min(50vw, 720px);
+    height: 400px;
+  }
+}
 .pillar-slot.is-open .pillar-card {
   width: min(50vw, 720px);
   height: 400px;
@@ -97,10 +109,16 @@
   position: relative;
   width: 100%; height: 100%;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transition: transform 0.7s cubic-bezier(.22,1,.36,1);
   border-radius: 4px;
 }
-.pillar-slot:hover .pillar-card-inner,
+@media (hover: hover) and (pointer: fine) {
+  .pillar-slot:hover .pillar-card-inner {
+    transform: rotateY(180deg);
+    box-shadow: 0 0 0 1px var(--gold), 0 30px 70px rgba(0,0,0,0.6), 0 0 46px rgba(176,141,87,0.35);
+  }
+}
 .pillar-slot.is-open .pillar-card-inner {
   transform: rotateY(180deg);
   box-shadow: 0 0 0 1px var(--gold), 0 30px 70px rgba(0,0,0,0.6), 0 0 46px rgba(176,141,87,0.35);
@@ -123,7 +141,9 @@
   display: block; filter: saturate(0.94) contrast(1.03);
   transition: transform 0.7s cubic-bezier(.22,1,.36,1);
 }
-.pillar-slot:hover .pillar-front img { transform: scale(1.04); }
+@media (hover: hover) and (pointer: fine) {
+  .pillar-slot:hover .pillar-front img { transform: scale(1.04); }
+}
 .pillar-placeholder {
   width: 100%; height: 100%;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;

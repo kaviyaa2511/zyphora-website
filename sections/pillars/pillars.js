@@ -18,10 +18,7 @@
      (paths are relative to the site root, since this loads inside /index.html).
      Leave either blank to fall back to the placeholder icon for that side. */
   const TEAM = [
-    { name: "Dhakshaiya Shree", role: "Graphic Designer", photoFront: "", photoBack: "",
-      about: "Creates visually impactful designs that strengthen brand identity across social media and campaign assets.",
-      duties: ["Brand Visual Design","Social Media Creatives","Campaign Asset Design","Visual Identity Development"] },
-    { name: "Harshinii", role: "Founder &bull; CEO &bull; Creative &amp; Growth Director",
+    { name: "Harshini", role: "Founder &bull; CEO &bull; Creative &amp; Growth Director",
       photoFront: "sections/pillars/images/Clienttalk-sample.png",
       photoBack: "sections/pillars/images/Editing-sample.png",
       about: "Leads Zyphora's vision, business growth, and creative direction, working closely with clients to develop impactful strategies.",
@@ -48,7 +45,10 @@
       duties: ["On-set Assistance","Visual Content Capture","Equipment &amp; Logistics","Production Organization"] },
     { name: "Dhanish", role: "Lead Video Editor", photoFront: "", photoBack: "",
       about: "Transforms raw footage into compelling stories through creative editing, pacing, and visual storytelling.",
-      duties: ["Video Editing &amp; Post Production","Motion Graphics &amp; Effects","Color Grading &amp; Sound Sync","Storyboarding &amp; Visual Flow"] }
+      duties: ["Video Editing &amp; Post Production","Motion Graphics &amp; Effects","Color Grading &amp; Sound Sync","Storyboarding &amp; Visual Flow"] },
+    { name: "Dhakshaiya Shree", role: "Graphic Designer", photoFront: "", photoBack: "",
+      about: "Creates visually impactful designs that strengthen brand identity across social media and campaign assets.",
+      duties: ["Brand Visual Design","Social Media Creatives","Campaign Asset Design","Visual Identity Development"] }
   ];
 
   function photoMarkup(photo, name){
@@ -98,15 +98,23 @@
   track.innerHTML = setHTML + setHTML;
 
   /* Touch/tap support: since hover doesn't exist on touch devices,
-     tapping a card toggles the flip via an .is-open class instead. */
+     tapping a card toggles the flip via an .is-open class instead.
+     The marquee's animation is paused/resumed directly here rather than
+     via :hover, since iOS treats a tap as a hover state that never
+     releases — leaving the marquee frozen after the first tap. */
   const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
   if (isTouch) {
-    track.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
       const slot = e.target.closest('.pillar-slot');
-      if (!slot) return;
-      const wasOpen = slot.classList.contains('is-open');
-      track.querySelectorAll('.pillar-slot.is-open').forEach(s => s.classList.remove('is-open'));
-      if (!wasOpen) slot.classList.add('is-open');
+      const withinTrack = e.target.closest('#pillarsTrack');
+      if (slot && withinTrack) {
+        const wasOpen = slot.classList.contains('is-open');
+        track.querySelectorAll('.pillar-slot.is-open').forEach(s => s.classList.remove('is-open'));
+        if (!wasOpen) slot.classList.add('is-open');
+      } else {
+        track.querySelectorAll('.pillar-slot.is-open').forEach(s => s.classList.remove('is-open'));
+      }
+      track.classList.toggle('is-paused', !!track.querySelector('.pillar-slot.is-open'));
     });
   }
 })();
