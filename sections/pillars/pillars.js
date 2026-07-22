@@ -63,23 +63,27 @@
       <div class="pillar-card">
         <div class="pillar-card-inner">
           <div class="pillar-face pillar-front">
-            ${photoMarkup(m.photoFront, m.name)}
-            <div class="pillar-front-info">
-              <div class="pillar-front-name">${m.name}</div>
-              <div class="pillar-front-role">${m.role}</div>
+            <div class="pillar-face-inner">
+              ${photoMarkup(m.photoFront, m.name)}
+              <div class="pillar-front-info">
+                <div class="pillar-front-name">${m.name}</div>
+                <div class="pillar-front-role">${m.role}</div>
+              </div>
             </div>
           </div>
           <div class="pillar-face pillar-back">
-            <div class="pillar-back-photo">${photoMarkup(m.photoBack, m.name)}</div>
-            <div class="pillar-back-content">
-              <h3 class="pillar-back-name">${m.name}</h3>
-              <div class="pillar-back-role">${m.role}</div>
-              <div class="pillar-back-divider"></div>
-              <p class="pillar-back-bio">${m.about}</p>
-              <div class="pillar-back-expertise-label">Expertise</div>
-              <ul class="pillar-back-expertise">
-                ${m.duties.map(d => `<li>${d}</li>`).join("")}
-              </ul>
+            <div class="pillar-face-inner">
+              <div class="pillar-back-photo">${photoMarkup(m.photoBack, m.name)}</div>
+              <div class="pillar-back-content">
+                <h3 class="pillar-back-name">${m.name}</h3>
+                <div class="pillar-back-role">${m.role}</div>
+                <div class="pillar-back-divider"></div>
+                <p class="pillar-back-bio">${m.about}</p>
+                <div class="pillar-back-expertise-label">Expertise</div>
+                <ul class="pillar-back-expertise">
+                  ${m.duties.map(d => `<li>${d}</li>`).join("")}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
